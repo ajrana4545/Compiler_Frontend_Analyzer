@@ -1,0 +1,12 @@
+# Custom keywords file — one keyword per line
+# Lines starting with # are comments and are ignored.
+# Add your language's keywords here so the lexer recognizes them as terminals
+# (instead of plain identifiers) for use in your grammar rules.
+#
+# Example: if your grammar has  stmt -> print expr ;
+# then add:  print
+
+# Example custom keywords (edit or replace as needed):
+begin
+end
+print

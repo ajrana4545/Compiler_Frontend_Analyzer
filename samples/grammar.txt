@@ -1,0 +1,18 @@
+# Mini-C Grammar for the Compiler Front-End Analyzer
+# Format: NT -> sym1 sym2 | sym3 | ε
+# Terminals: ID, NUM, int, float, void, char, if, else, while, for, return and punctuation
+
+program -> decl_list
+decl_list -> decl decl_list | ε
+decl -> type ID ; | type ID ( params ) { stmt_list }
+type -> int | float | void | char
+params -> type ID param_list | ε
+param_list -> , type ID param_list | ε
+stmt_list -> stmt stmt_list | ε
+stmt -> expr ; | { stmt_list } | if ( expr ) stmt | if ( expr ) stmt else stmt | while ( expr ) stmt | return expr ; | return ;
+expr -> ID = expr | add_expr
+add_expr -> mul_expr add_expr_p
+add_expr_p -> + mul_expr add_expr_p | - mul_expr add_expr_p | ε
+mul_expr -> unary mul_expr_p
+mul_expr_p -> * unary mul_expr_p | / unary mul_expr_p | ε
+unary -> ( expr ) | ID | NUM
